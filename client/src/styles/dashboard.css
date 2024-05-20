@@ -1,0 +1,53 @@
+.adminDashboard {
+  margin: 30px;
+}
+
+.userTable {
+  width: 90%;
+  min-width: 300px;
+  border-collapse: collapse;
+  box-shadow: 2px 2px 5px #3c2a2133;
+}
+
+.userTable th {
+  font-size: 18px;
+}
+
+.userTable th,
+.userTable td {
+  border: 1px solid #3c2a2133;
+  padding: 10px;
+  text-align: left;
+}
+
+.userTable thead {
+  background-color: #f2f2f2;
+}
+
+.userTable tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.btn-danger {
+  background-color: #c03a3a;
+}
+
+@media (max-width: 600px) {
+  .adminDashboard {
+    margin: 15px 10px;
+  }
+
+  .btn {
+    padding: 7px 10px;
+    font-size: 10px;
+    border-radius: 10px;
+  }
+
+  .userTable th {
+    font-size: 12px;
+  }
+
+  .userTable td {
+    font-size: 10px;
+  }
+}
