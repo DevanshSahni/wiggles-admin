@@ -41,29 +41,29 @@ input:focus {
 
 /* Scrollbar */
 
-::-webkit-scrollbar,
-::-webkit-scrollbar-thumb,
-::-webkit-scrollbar-track {
+body::-webkit-scrollbar,
+body::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-track {
   width: 8px;
   border: none;
   background: transparent;
 }
 
-::-webkit-scrollbar-button,
-::-webkit-scrollbar-track-piece,
-::-webkit-scrollbar-corner,
-::-webkit-resizer {
+body::-webkit-scrollbar-button,
+body::-webkit-scrollbar-track-piece,
+body::-webkit-scrollbar-corner,
+body::-webkit-resizer {
   display: none;
 }
 
-::-webkit-scrollbar-thumb {
+body::-webkit-scrollbar-thumb {
   border-radius: 6px;
   background-color: #1a5fac;
   background-color: #d14545;
   background-image: linear-gradient(to bottom, #ff8400, #f42b03);
 }
 
-::-webkit-scrollbar-track {
+body::-webkit-scrollbar-track {
   background-repeat: repeat-y;
   background-size: contain;
   background-color: #ff84004f;
@@ -80,7 +80,7 @@ input:-webkit-autofill:active {
 .btn {
   all: unset;
   cursor: pointer;
-  margin: 0 auto;
+  margin: 5px;
   background-color: #3c2a21;
   text-align: center;
   padding: 10px 20px;
@@ -96,4 +96,21 @@ input:-webkit-autofill:active {
   background-color: #f6f1e9;
   color: #3c2a21;
   box-shadow: 2px 4px #3c2a21;
+}
+
+.btn-danger {
+  background-color: #c03a3a;
+}
+
+.btn-warn{
+  background-color: rgb(253, 253, 131);
+  color: #3c2a21;
+}
+
+.userImage {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 100%;
+  scale: 1;
 }

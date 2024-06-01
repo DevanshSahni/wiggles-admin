@@ -2,6 +2,10 @@
   margin: 30px;
 }
 
+.userTableWrapper{
+  overflow-x: auto;
+}
+
 .userTable {
   width: 90%;
   min-width: 300px;
@@ -28,11 +32,11 @@
   background-color: #f9f9f9;
 }
 
-.btn-danger {
-  background-color: #c03a3a;
+.userTableActions{
+  text-wrap: nowrap;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 750px) {
   .adminDashboard {
     margin: 15px 10px;
   }

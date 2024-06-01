@@ -1,0 +1,106 @@
+.popupWrapper {
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(140, 140, 140, 0.477);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popupContainer {
+  width: 40%;
+  min-width: 300px;
+  height: 300px;
+  background-color: aliceblue;
+  border-radius: 15px;
+  padding: 25px 20px 10px;
+  position: relative;
+  transition: all 2s ease-in-out;
+  box-shadow: 5px 5px 10px #3c2a216e;
+}
+
+.popupContainer h2 {
+  text-align: center;
+  margin: 20px 10px 20px;
+}
+
+.popupCloseBtn {
+  float: right;
+  font-size: 20px;
+  padding: 2px 2px 0;
+  cursor: pointer;
+}
+
+.popupAction {
+  color: #ff8400;
+}
+
+.popupEntry {
+  display: flex;
+  margin: 10px 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.popupEntry h5 {
+  width: 200px;
+  flex-wrap: nowrap;
+}
+
+.popupEntry select,
+.popupEntry textarea {
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  padding: 10px;
+  border-bottom: 1px solid #ff8400;
+  font-size: 14px;
+  width: 250px;
+  transition: 0.2s ease-in-out;
+  color: #3c2a21;
+  box-sizing: border-box;
+  box-shadow: 2px 3px 5px #3c2a216e;
+}
+
+.popupEntry textarea {
+  height: 65px;
+  resize: none;
+}
+
+.popupEntry textarea::-webkit-scrollbar {
+  width: 0px;
+}
+
+.popupBtn {
+  position: absolute;
+  right: 15px;
+  bottom: 20px;
+}
+
+@media (max-width: 800px) {
+  .popupContainer h2 {
+    font-size: 14px;
+  }
+  .popupContainer {
+    height: 250px;
+  }
+  .popupEntry h5 {
+    font-size: 12px;
+  }
+
+  .popupEntry select,
+  .popupEntry textarea {
+    padding: 5px;
+    font-size: 10px;
+    width: 180px;
+  }
+
+  .popupEntry textarea {
+    height: 40px;
+  }
+  .popupBtn {
+    bottom: 10px;
+  }
+}
