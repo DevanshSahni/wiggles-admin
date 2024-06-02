@@ -18,6 +18,6 @@ mongoose.connect(`mongodb+srv://${process.env.DB_CONNECTION_STRING}`);
 
 app.use("/", routes);
 
-app.listen(5000, () => {
+app.listen(process.env.PORT, () => {
   console.log("Welcome to the server of Wiggles admin!");
 });
