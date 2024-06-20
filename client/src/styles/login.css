@@ -1,0 +1,111 @@
+.loginWrapper {
+  background-color: #f6f1e9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100vw;
+}
+
+.logoHeading {
+  position: absolute;
+  top: 10px;
+  left: 25px;
+  font-family: "Shantell Sans", cursive;
+  color: #ff8400;
+}
+
+.loginContainer {
+  width: 550px;
+  height: 375px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem 3rem;
+  background-color: #ff8400;
+  border-radius: 30px;
+  color: #f6f1e9;
+  animation: pop-up 0.5s;
+}
+
+@keyframes pop-up {
+  0% {
+    opacity: 50%;
+    scale: 0.75;
+  }
+  100% {
+    opacity: 100%;
+    scale: 1;
+  }
+}
+
+.loginContainer h1 {
+  font-size: 40px;
+}
+
+.loginContainer form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.pwdContainer,
+.usernameContainer {
+  min-width: 200px;
+  border-radius: 10px;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.loginContainer input {
+  border: none;
+  font-size: 16px;
+  padding: 15px 10px;
+  border-radius: 10px;
+  width: 100%;
+  font-weight: 500;
+}
+
+.pwdContainer span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10%;
+}
+
+svg.revealPwd {
+  fill: #aaaaaa;
+  cursor: pointer;
+  font-size: 1.3rem;
+}
+
+.secondaryLogin {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+@media (max-width: 750px) {
+  .logoHeading{
+    font-size: 22px;
+  }
+  .loginContainer {
+    width: 320px;
+    height: 275px;
+    padding: 0.5rem 1.5rem;
+    border-radius: 20px;
+  }
+  .loginContainer h1 {
+    font-size: 24px;
+  }
+  .loginContainer input {
+    font-size: 12px;
+    padding: 10px 5px;
+    border-radius: 5px;
+    font-weight: 300;
+  }
+}

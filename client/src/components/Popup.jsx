@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "../styles/popup.css";
 import { IoClose } from "react-icons/io5";
+import { postData } from "../utils/api";
+import { toast } from "react-toastify";
 
-const Popup = ({ setShowPopup, popupText }) => {
+const Popup = ({ setShowPopup, popupAction, userID, setUserID }) => {
   const [reason, setReason] = useState("name");
   const [message, setMessage] = useState("");
 
@@ -14,9 +16,19 @@ const Popup = ({ setShowPopup, popupText }) => {
     );
   }, [reason]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Backend call to submit message, type and block user
+    const response = await postData("violation", {
+      userID,
+      popupAction,
+      message,
+      reason,
+    });
+    if (response.status === 200) {
+      toast.success("Violation successfully set.");
+    } else {
+      toast.error("There was some error in setting the violation.");
+    }
   };
 
   return (
@@ -26,15 +38,16 @@ const Popup = ({ setShowPopup, popupText }) => {
           className="popupCloseBtn"
           onClick={() => {
             document.body.style.overflowY = "auto";
+            setUserID("");
             setShowPopup(false);
           }}
         >
           <IoClose />
         </span>
-        <h2>
+        <h3>
           Are you sure you want to{" "}
-          <span className="popupAction">{popupText}</span> the user?
-        </h2>
+          <span className="popupAction">{popupAction}</span> the user?
+        </h3>
         <div className="popupEntry">
           <h5>Select the reason: </h5>
           <select required onChange={(e) => setReason(e.target.value)}>

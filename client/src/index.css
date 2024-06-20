@@ -3,6 +3,7 @@
 
 * {
   font-family: "Raleway", sans-serif;
+  box-sizing: border-box;
 }
 
 /* font-family: "Shantell Sans", cursive; */
@@ -31,7 +32,8 @@ code {
 
 a,
 a:visited {
-  text-decoration: none;
+  all: unset;
+  cursor: pointer;
 }
 
 input:focus {
@@ -102,7 +104,7 @@ input:-webkit-autofill:active {
   background-color: #c03a3a;
 }
 
-.btn-warn{
+.btn-warn {
   background-color: rgb(253, 253, 131);
   color: #3c2a21;
 }
@@ -113,4 +115,23 @@ input:-webkit-autofill:active {
   object-fit: cover;
   border-radius: 100%;
   scale: 1;
+}
+
+.loaderContainer {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#loader {
+  width: 500px;
+}
+
+@media only screen and (max-width: 480px) {
+  .Toastify__toast-container {
+    width: 300px;
+    left: calc(100% - 310px);
+    margin: 10px 10px 0 0;
+  }
 }
