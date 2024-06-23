@@ -28,11 +28,11 @@ const Dashboard = () => {
       }
     };
     getUserData();
-  }, []);
+  });
 
   const handleLogout = async () => {
     const response = await getData("logout");
-    if (response.status == 200) {
+    if (response.status === 200) {
       auth.setLoginStatus(false);
       navigate("/login");
     } else {
@@ -59,6 +59,7 @@ const Dashboard = () => {
                 <th>Image</th>
                 <th>Breed</th>
                 <th>Bio</th>
+                <th>Warnings</th>
                 <th>Actions</th>
               </tr>
             </thead>
@@ -70,6 +71,7 @@ const Dashboard = () => {
                     <a
                       href={`https://wiggles.vercel.app/profile/${user._id}`}
                       target="_blank"
+                      rel="noreferrer"
                     >
                       {user.name}
                     </a>
@@ -87,6 +89,7 @@ const Dashboard = () => {
                   </td>
                   <td>{user.breed}</td>
                   <td>{user.bio}</td>
+                  <td>{user.violations?.warnings || "-"}</td>
                   <td className="userTableActions">
                     <button
                       type="button"
@@ -94,7 +97,7 @@ const Dashboard = () => {
                       onClick={() => {
                         setShowPopup(true);
                         setPopupAction("ban");
-                        setUserID(user._id)
+                        setUserID(user._id);
                       }}
                     >
                       Ban
@@ -105,7 +108,7 @@ const Dashboard = () => {
                       onClick={() => {
                         setShowPopup(true);
                         setPopupAction("warn");
-                        setUserID(user._id)
+                        setUserID(user._id);
                       }}
                     >
                       Warn
@@ -117,7 +120,14 @@ const Dashboard = () => {
           </table>
         </div>
       </div>
-      {showPopup && <Popup setShowPopup={setShowPopup} popupAction={popupAction} userID={userID} setUserID={setUserID} />}
+      {showPopup && (
+        <Popup
+          setShowPopup={setShowPopup}
+          popupAction={popupAction}
+          userID={userID}
+          setUserID={setUserID}
+        />
+      )}
     </>
   );
 };

@@ -9,11 +9,12 @@ module.exports.setViolation = async (req, res) => {
   );
   const violation = user.violations;
 
-  const newViolation = {
+  let newViolation = {
     warn: false,
     warnings: 0,
     ban: false,
     violationMessage: message,
+    lastWarned: "",
   };
 
   if (popupAction == "ban") {
@@ -27,6 +28,7 @@ module.exports.setViolation = async (req, res) => {
   } else {
     newViolation.warn = true;
     newViolation.warnings = violation ? violation.warnings + 1 : 1;
+    newViolation = { ...newViolation, lastWarned: Date.now() };
   }
 
   await ProfileModel.updateOne({ _id: userID }, { violations: newViolation });
