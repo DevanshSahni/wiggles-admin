@@ -1,7 +1,8 @@
+const BannedUsersModel = require("../models/BannedUsers");
 const ProfileModel = require("../models/Profile");
 
 module.exports.setViolation = async (req, res) => {
-  const { userID, popupAction, message } = req.body;
+  const { userID, popupAction, message, reason } = req.body;
   const user = await ProfileModel.findOne(
     { _id: userID },
     { _id: 0, violations: 1 }
@@ -17,6 +18,12 @@ module.exports.setViolation = async (req, res) => {
 
   if (popupAction == "ban") {
     newViolation.ban = true;
+    const bannedUser = new BannedUsersModel({
+      userID,
+      reason,
+      message,
+    });
+    bannedUser.save();
   } else {
     newViolation.warn = true;
     newViolation.warnings = violation ? violation.warnings + 1 : 1;

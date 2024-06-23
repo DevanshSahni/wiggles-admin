@@ -4,13 +4,15 @@ import { useNavigate } from "react-router-dom";
 import Loader from "../components/Loader";
 import { toast } from "react-toastify";
 
-const ProtectedRoute = ({children}) => {
+const ProtectedRoute = ({ children }) => {
   const auth = useContext(AuthContext);
   const navigate = useNavigate();
 
   useEffect(() => {
     if (!auth.loginStatus) {
-      toast.error("Kindly login first.");
+      if (window.location.pathname !== "/") {
+        toast.error("Kindly login first.");
+      }
       navigate("/login");
     }
   }, [auth.loginStatus, navigate]);

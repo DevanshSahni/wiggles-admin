@@ -29,19 +29,18 @@ const Popup = ({ setShowPopup, popupAction, userID, setUserID }) => {
     } else {
       toast.error("There was some error in setting the violation.");
     }
+    handleClose();
   };
 
+  const handleClose = () => {
+    document.body.style.overflowY = "auto";
+    setUserID("");
+    setShowPopup(false);
+  };
   return (
     <div className="popupWrapper">
       <form className="popupContainer" onSubmit={handleSubmit}>
-        <span
-          className="popupCloseBtn"
-          onClick={() => {
-            document.body.style.overflowY = "auto";
-            setUserID("");
-            setShowPopup(false);
-          }}
-        >
+        <span className="popupCloseBtn" onClick={() => handleClose()}>
           <IoClose />
         </span>
         <h3>
